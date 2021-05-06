@@ -1,0 +1,41 @@
+.head{
+  width:100%;
+height: 500rpx;
+opacity: 1;
+overflow: hidden
+}
+.ph_bg{
+  width: 593rpx;
+  height: 20rpx;
+  opacity: 1;
+  background: #fee1df;
+  border-radius: 10rpx;
+  }
+  .jindu_img{
+  width: 65rpx;
+  height: 80rpx
+}
+.jindu_img2{
+  width: 125rpx;
+  height: 125rpx
+}
+.yq{
+  width: 630rpx;
+  text-align: center;
+  height: 80rpx;
+  line-height: 80rpx;
+  opacity: 1;
+  background: linear-gradient(180deg,#f8b35c, #ee5c5c);
+  border-radius: 40px;
+  color: #fff;
+  font-size: 32rpx;
+}
+
+.winIMG{
+  width: 90rpx;
+  height: 90rpx
+}
+page{
+  width: 100%;
+  height: 100%;
+}

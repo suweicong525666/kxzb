@@ -1,0 +1,16 @@
+<view class="pages">
+</view>
+<view class="relative" style="padding-top:190rpx">
+    <view class="bg-white margin-sm radius-20">
+        <view class="text-center padding-top">
+            <text class="icon-phsmall"></text>
+            <text class="icon-ph"></text>
+            <text class="margin-lr-sm text-34 text-black bold">签到得好礼</text>
+            <text class="icon-ph"></text>
+             <text class="icon-phsmall"></text>
+        </view>
+        <view class="text-26 text-666666 padding">
+          签到得好礼签到得好礼签到得好礼，签到得好礼签到得好礼签到得好礼签到得好礼，签到得好礼签到得好礼签到得好礼签到得好礼签到得好礼。
+        </view>
+    </view>
+</view>

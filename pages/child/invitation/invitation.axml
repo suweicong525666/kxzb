@@ -1,0 +1,91 @@
+<view>
+		<view class="head">
+			<image src="../../../static/image/rwbj.webp" mode="widthFix" style="width: 100%;"></image>
+		</view>
+    <view class="bg-white radius-20 margin padding relative" style="margin-top:-3.2rem">
+        <view class="flex justify-between">
+            <view class="text-black text-34 bold">
+              完成任务领奖励
+            </view>
+            <view class="text-24 text-EE5C5C flex align-center">
+                <image style="margin-right:5rpx" class="icon-25" mode="scaleToFill" src="/static/image/gt.png"/>
+                <text>活动规则</text>
+            </view>
+        </view>
+        <view class="margin-top-xs">
+          <text class="text-24 text-666666">当前进度：</text>
+          <text class="text-24 text-EE5C5C">5/</text>
+          <text class="text-24 text-666666">100</text>
+        </view>
+        <view class="padding-tb margin-top-sm">
+            <view class="ph_bg"></view>
+            <view class="flex justify-around align-center" style="margin-top:-0.7rem;width:670rpx">
+               <view>
+                  <view class="text-center">
+                    <image class="jindu_img" mode="scaleToFill" src="/static/image/qian.png"/>
+                  </view>
+               </view>
+               <view>
+                  <view class="text-center">
+                    <image class="jindu_img" mode="scaleToFill" src="/static/image/qian.png"/>
+                  </view>
+               </view>
+                <view>
+                  <view class="text-center">
+                    <image class="jindu_img" mode="scaleToFill" src="/static/image/qian.png"/>
+                  </view>
+               </view>
+                <view>
+                  <view class="text-center">
+                    <image class="jindu_img2" mode="scaleToFill" src="/static/image/dl.webp"/>
+                  </view>
+               </view>
+            </view>
+            <view class="flex justify-around align-center text-24 text-666666" style="width:650rpx">
+               <view>
+                  完成100个
+               </view>
+               <view>
+                  完成500个
+               </view>
+                <view>
+                  完成1500个
+               </view>
+                <view>
+                  完成3000个
+               </view>
+            </view>
+        </view>
+        <button class="yq" open-type="share">
+          邀请好友赚钱
+        </button>
+    </view>
+    <view class="margin bg-white radius-20 padding">
+        <view class="text-34 text-black text-center bold">
+            <text class="icon-phsmall"></text>
+            <text class="icon-ph"></text>
+           <text class="margin-lr-sm">好友贡献排行</text>
+           <text class="icon-ph"></text>
+           <text class="icon-phsmall"></text>
+        </view>
+       <view class="margin-top-sm" a:for="{{15}}">
+          <view class="flex align-center justify-between">
+            <view class="flex">
+                <image class="winIMG" mode="scaleToFill" src="/static/image/no1.png"/>
+                <image class="icon-80 margin-left-xs" mode="scaleToFill" src="/static/image/no1.png"/>
+                <view class="margin-left-sm">
+                    <view class="text-28 text-black padding-bottom-xs">
+                        哦耶
+                    </view>
+                    <view class="text-24 text-999999">
+                      2021-03-02 19:27:06
+                    </view>
+                </view>
+            </view>
+            <view class="text-EE5C5C">
+                +1
+            </view>
+          </view>
+       </view>
+    </view>
+	</view>
