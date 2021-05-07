@@ -15,7 +15,9 @@
     "pages/child/invitation/invitation",
     "pages/child/inviteRules/inviteRules",
     "pages/child/activityRules/activityRules",
-    "pages/child/signRule/signRule"
+    "pages/child/signRule/signRule",
+    "pages/child/rwCenter/rwCenter",
+    "pages/child/exchange/exchange"
   ],
   "plugins": {
     "myPlugin": {

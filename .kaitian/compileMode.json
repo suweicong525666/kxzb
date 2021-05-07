@@ -15,6 +15,14 @@
     {
       "title": "签到规则",
       "page": "pages/child/signRule/signRule"
+    },
+    {
+      "title": "任务中心",
+      "page": "pages/child/rwCenter/rwCenter"
+    },
+    {
+      "title": "金币兑换",
+      "page": "pages/child/exchange/exchange"
     }
   ]
 }

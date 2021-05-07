@@ -1,0 +1,8 @@
+@import '/pages/child/invitation/invitation.acss';
+
+.head{
+  width:100%;
+height: 500rpx;
+opacity: 1;
+overflow: hidden
+}

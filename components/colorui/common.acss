@@ -604,3 +604,12 @@
   color: #fff;
   margin-top: 40rpx;
 }
+.bg-EE5C5C{
+  background-color: #EE5C5C
+}
+.bg-FFF0EF{
+  background-color: #FFF0EF
+}
+.text-FFEBAC{
+  color: #FFEBAC
+}

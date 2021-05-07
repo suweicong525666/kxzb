@@ -3,7 +3,7 @@ Page({
   data: {
         list:[],
 				tabIndex:0,
-				tabList:['余额明细','集分宝明细'],
+				tabList:['资金明细','集分宝明细'],
 				page:1,
 				size:10,
 				noMore:false

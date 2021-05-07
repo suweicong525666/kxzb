@@ -14,11 +14,15 @@
         </view>
         <view class="margin-top-xs">
           <text class="text-24 text-666666">当前进度：</text>
-          <text class="text-24 text-EE5C5C">5/</text>
-          <text class="text-24 text-666666">100</text>
+          <text class="text-24 text-EE5C5C">{{userInfo.NumberCompletions}}/</text>
+          <text class="text-24 text-666666">{{topList.Sum}}</text>
         </view>
         <view class="padding-tb margin-top-sm">
-            <view class="ph_bg"></view>
+            <view class="ph_bg flex">
+              <view class="bg-red" style="width:{{topList.Sum/userInfo.NumberCompletions}}%">
+                
+              </view>
+            </view>
             <view class="flex justify-around align-center" style="margin-top:-0.7rem;width:670rpx">
                <view>
                   <view class="text-center">
@@ -41,18 +45,9 @@
                   </view>
                </view>
             </view>
-            <view class="flex justify-around align-center text-24 text-666666" style="width:650rpx">
-               <view>
-                  完成100个
-               </view>
-               <view>
-                  完成500个
-               </view>
-                <view>
-                  完成1500个
-               </view>
-                <view>
-                  完成3000个
+            <view class="flex {{topList.list.length==4?'justify-around':'padding-left'}} align-center text-24 text-666666" style="width:650rpx">
+               <view a:for="{{topList.list}}">
+                  完成{{item.Number}}个
                </view>
             </view>
         </view>
@@ -68,14 +63,25 @@
            <text class="icon-ph"></text>
            <text class="icon-phsmall"></text>
         </view>
-       <view class="margin-top-sm" a:for="{{15}}">
+        <view a:if="{{rankList.RankingVersionList.length==0}}">
+            <view class="text-center">
+                <image class="zw" mode="widthFix" src="/static/image/zw.png"/>
+            </view>
+            <view class="text-center text-999999 text-24">
+                暂无记录
+            </view>
+        </view>
+        <!-- 第1~3名 -->
+       <view class="margin-top-sm" a:for="{{rankList.RankingVersionList}}" a:for-index="index"  a:if="{{index<3}}">
           <view class="flex align-center justify-between">
             <view class="flex">
-                <image class="winIMG" mode="scaleToFill" src="/static/image/no1.png"/>
-                <image class="icon-80 margin-left-xs" mode="scaleToFill" src="/static/image/no1.png"/>
+                <image a:if="{{index==0}}" class="icon-80 margin-left-xs" mode="scaleToFill" src="/static/image/no1.png"/>
+                <image a:if="{{index==1}}" class="icon-80 margin-left-xs" mode="scaleToFill" src="/static/image/no2.png"/>
+                <image a:if="{{index==2}}" class="icon-80 margin-left-xs" mode="scaleToFill" src="/static/image/no3.png"/>
+                 <image class="winIMG" mode="scaleToFill" src="{{item.HeadImg}}"/>
                 <view class="margin-left-sm">
                     <view class="text-28 text-black padding-bottom-xs">
-                        哦耶
+                       	{{item.NickName?item.NickName:item.UserName}}
                     </view>
                     <view class="text-24 text-999999">
                       2021-03-02 19:27:06
@@ -83,7 +89,27 @@
                 </view>
             </view>
             <view class="text-EE5C5C">
-                +1
+                +{{item.Income}}
+            </view>
+          </view>
+       </view>
+       <!-- 第三名后的 -->
+       <view class="margin-top-sm" a:for="{{rankList.RankingVersionList}}" a:for-index="index"  a:if="{{index>2}}">
+          <view class="flex align-center justify-between">
+            <view class="flex">
+                  <text>{{index+1}}</text>
+                 <image class="winIMG" mode="scaleToFill" src="{{item.HeadImg}}"/>
+                <view class="margin-left-sm">
+                    <view class="text-28 text-black padding-bottom-xs">
+                       	{{item.NickName?item.NickName:item.UserName}}
+                    </view>
+                    <view class="text-24 text-999999">
+                      2021-03-02 19:27:06
+                    </view>
+                </view>
+            </view>
+            <view class="text-EE5C5C">
+                +{{item.Income}}
             </view>
           </view>
        </view>

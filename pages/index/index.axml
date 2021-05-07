@@ -3,13 +3,13 @@
 <view class="flex justify-between top padding-left-sm relative">
     <!-- 左 -->
     <view>
-          <view onTap="jump_sign">
+          <view onTap="jump_left" data-index="0">
               <image class="top_icon" src="/static/image/qd.png" mode="aspectFit"></image>
           </view>
-          <view>
+          <view onTap="jump_left" data-index="1">
               <image class="top_icon" src="/static/image/zq.png" mode="aspectFit"></image>
           </view>
-          <view>
+          <view onTap="jump_left" data-index="2">
               <image class="top_icon" src="/static/image/zjfb.png" mode="aspectFit"></image>
           </view>
     </view>
@@ -17,7 +17,7 @@
     <view class="padding-top-sm">
           <view class="top_r">
              <image src="/static/image/jfb.png" mode="aspectFit" class="icon-30"></image>
-             <text>集分宝：{{userInfo.jifenbao}}</text>
+             <text>集分宝：{{userInfo.Jifenbao}}</text>
           </view>
           <view class="flex justify-end padding-right-sm" >
               <image class="top_icon" src="/static/image/kf.png" mode="aspectFit"></image>
@@ -56,22 +56,22 @@
 		</view>
 
 	<!-- 阿里图片灯火广告 -->
-		<view class="relative margin-bottom-xl">
+		<view class="relative margin-bottom-xl margin-top-sm">
 			<view  class="flex justify-center" style="" data-num="{{syalggList[0].NumberPopups}}" data-modalInfo="{{syalggList[0].IsDone}}" data-item="{{syalggList[0]}}" data- onTap="jump_banner">
-				<ad class="ad1"
+				<ad class=""
 				unit-id ="ad_tiny_2021002135640940_202105062200009918"
         onLoad="onRenderSuccess"
         onError="onRenderFail"
 				/>
 			</view>
 
-<view class="tabbar flex justify-around margin-top-sm fixed-bottom">
-      <button  open-type="share">
+<view class="tabbar flex {{navList.length<3?'':'justify-around'}} margin-top-sm fixed-bottom">
+      <button  open-type="share" class="{{navList.length<3?'margin-left-sm':''}}">
           <image onTap="tabJump" data-index="0" mode="scaleToFill" src="/static/image/yqhy.png"/>
       </button>
-     <image onTap="tabJump" data-index="1" mode="scaleToFill" src="/static/image/hygx.png"/>
-      <image onTap="tabJump" data-index="2" mode="scaleToFill" src="/static/image/scyl.png"/>
-       <image onTap="tabJump" data-index="3" mode="scaleToFill" src="/static/image/jbdh.png"/>
+     <image   class="{{navList.length<3?'margin-lr-sm':''}}" a:for="{{navList}}" data-JumpType="{{item.JumpType}}" data-item="{{item}}" onTap="tabNav" mode="scaleToFill" src="/static/image/hygx.png"/>
+      <!-- <image onTap="tabJump" data-index="2" mode="scaleToFill" src="/static/image/scyl.png"/>
+       <image onTap="tabJump" data-index="3" mode="scaleToFill" src="/static/image/jbdh.png"/> -->
 </view>
 
 	<!-- 	做任务广告模态框弹窗 -->
@@ -85,11 +85,11 @@
 							完成任务即可获得奖励
 						</view>
 						<view class="bold margin-top main_huode" style="">
-						<text style="font-size:70rpx">+{{nowList.RewardAmount}}</text><text style="font-size:28rpx">{{nowList.modalType==1?'金币':'集分宝'}}</text>
+						<text style="font-size:70rpx">+{{nowList.RewardAmount}}</text><text style="font-size:28rpx">{{nowList.Type==1?'金币':'集分宝'}}</text>
 						</view>
 						<view class="dasheds"></view>
 						<view class="margin-top-lg padding-lr relative bg-FDE9FF flex align-center modal-t-box padding-tb-xs">
-                <image class="icon-100" mode="scaleToFill" src="{{nowList.Img}}"/>
+                <image class="icon-100" mode="widthFix" src="{{nowList.Img}}"/>
                 <view class="margin-left-sm">
                     <view class="text-black text-28 text-left">
                         {{nowList.Title}}

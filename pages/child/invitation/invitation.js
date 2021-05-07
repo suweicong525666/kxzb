@@ -20,9 +20,9 @@ Page({
   },
   onShareAppMessage() {
 			return{
-				title:this.data.list[0].Title,
-				path:'pages/index/index?userid='+this.data.userInfo.AliAppletOpenId+'&taskId='+this.data.taskid,
-				desc:this.data.list[0].Subtitle,
+				title:'开心直播',
+				path:'pages/index/index?userid='+this.data.userInfo.AliAppletOpenId,
+				desc:'开心直播',
 				bgImgUrl:'/static/image/iv.jpg'
 			}
     },
@@ -34,6 +34,17 @@ Page({
         console.log('成功回调',res)
         this.setData({
           userInfo:res.data
+        })
+        this.GetTaskCenterPage()
+      })
+  },
+  GetTaskCenterPage(){
+    request('/api/v3/Activity/GetTaskCenterPage','GET', {
+      // 传参参数名：参数值,如果没有，就不需要传
+      }).then(res => {
+        console.log('成功回调',res)
+        this.setData({
+          topList:res.data
         })
       })
   },

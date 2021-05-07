@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "金币兑换",
+  "allowsBounceVertical": "NO",
+ "transparentTitle": "auto",
+  "titlePenetrate": "NO",
+  	"usingComponents": {
+		 "i-count-down": "iview-aliapp/dist/dist/count-down/index"
+	}
+}

@@ -1,7 +1,8 @@
 import 'umtrack-alipay';
+import "./__antmove/component/componentClass.js";
 App({
   umengConfig:{
-    appKey:'6066e11018b72d2d2443e516',//由友盟分配的APP_KEY
+    appKey:'6094f2d0c9aacd3bd4c75c0d',//由友盟分配的APP_KEY
     debug:true,//是否打开调试模式
     uploadUserInfo:false,// 自动上传用户信息，设为false取消上传，默认为false
     enableVerify:false//2.4.11及以上版本打开也不会调用剪切版；

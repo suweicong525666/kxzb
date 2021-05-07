@@ -71,11 +71,7 @@ Page({
 			   },
 			  });
   },
-  jump_sign(){
-    my.navigateTo({
-      url:'/pages/child/sign/sign'
-    })
-  },
+
   onRenderSuccess(e){
     console.log('阿里图片广告加载成功',e)
     if(e.detail.height>0){
@@ -117,10 +113,24 @@ Page({
     }
     if(index==3){
         my.navigateTo({
-          url: '/pages/child/myCoin/myCoin'
+          url: '/pages/child/exchange/exchange'
         });return
     }
   },	
+  jump_left(e){
+     let index=e.currentTarget.dataset.index;
+     if(index==0){
+         my.navigateTo({
+        url:'/pages/child/sign/sign'
+      });return
+     }
+      if(index==2){
+         my.navigateTo({
+        url:'/pages/child/rwCenter/rwCenter'
+      });return
+     }
+     
+},
   right_jump(e){
      let index=e.currentTarget.dataset.index;
     if(index==0){
@@ -143,6 +153,15 @@ Page({
   },
   //获取任务数据
   GetTaskList(){
+    	request('/api/v2/Activity/GetTaskList/GetTaskList','GET',{TaskArea:'dh&',page:this.page,size:this.size},
+				).then(rw=>{
+					if(rw.success){
+             this.setData({
+               navList:rw.data
+             })
+
+					}
+        })
       	request('/api/v2/Activity/GetTaskList/GetTaskList','GET',{TaskArea:'rw&',page:this.page,size:this.size},
 				).then(rw=>{
 					if(rw.success){
@@ -168,6 +187,7 @@ Page({
     }
   },
   tabNav(e){
+    console.log(e)
         let JumpType=e.currentTarget.dataset.JumpType;
         let item=e.currentTarget.dataset.item;
         var that=this;
@@ -367,6 +387,7 @@ Page({
                 console.log(res);
                 setTimeout(()=>{
                   that.GetTaskList();
+                  that.GetUserModel();
                 },1000)
                 this.setData({
                     modalname:'',

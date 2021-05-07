@@ -34,7 +34,7 @@ page{
 }
 
 .watch .text{
-  padding-top: 20rpx;
+  padding-top: 50rpx;
   font-size: 40rpx;
   font-weight: 700;
   color: #e65254;
@@ -86,7 +86,8 @@ height: 1.5rem;
   width:100%;
   background-position: 100% 10%;
   background-size: cover;
-  background-image: url('https://api.shupaiyun.com/api/v1/File/Get?openId=20531fc362164785b5847edf8a4e9cbf')
+  background-image: url('/static/image/bj.png')
+  /* background-image: url('https://api.shupaiyun.com/api/v1/File/Get?openId=20531fc362164785b5847edf8a4e9cbf') */
 }
 .fixed-bottom{
     position: fixed;

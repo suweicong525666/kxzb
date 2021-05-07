@@ -1,42 +1,64 @@
 <view>
-		<view class="top"></view>
-		<view class="relative">
-			<image style="width: 100%;" src="../../../static/image/mine-bj.png" mode="widthFix"></image>
-			<view class="top-box">
-				<view class="text-24 text-black">
-					可提现金额（元）
-				</view>
-				<view class="margin-top-sm flex justify-between align-center" style="width: 100%;">
-					<view class="">
-						<text class="text-40 bold">￥</text>
-						<text class="text-60 bold">{{userInfo.Money}}</text>
-					</view>
-					<view class="" onTap="jump_balanceDetail" data-index="0">
-						<text class="text-24 text-black">查看明细</text>
-						<text class="text-24 text-black cuIcon-right margin-left-xs"></text>
-					</view>
-				</view>
-			</view>
-		</view>
+      <view class="top">
+          <view class="flex justify-between align-center padding-lr-sm">
+            <view class="flex">
+              <image class="icon-120 radius-all" src="{{userInfo.HeadImg?userInfo.HeadImg:'/static/image/moren.png'}}" mode="aspectFit"></image>
+              <view class="margin-left-sm padding-top-sm">
+                <view class="text-white text-34">
+                  {{userInfo.NickName?userInfo.NickName:userInfo.UserName}}
+                </view>
+                <view class="text-white text-24 margin-top-xs">
+                  IC：{{userInfo.AccountId}}
+                </view>
+              </view>
+            </view>
+            <view class="flex align-center justify-center top_r" onTap="jump_balanceDetail" data-index="0">
+              <text class="text-white text-24">收支明细</text>
+              <text class="lg text-white cuIcon-right margin-left-xs" ></text>
+            </view>
+          </view>
+      </view>
 		<view class="main">
-			<view class="text-24 text-black">
-				提现余额
-			</view>
-			<view class="flex grid col-3 margin-top-sm">
-				<view class="text-center margin-bottom-sm" a:for="{{moneyList}}" a:for-index="index" onTap="tabMoney" data-index="{{index}}">
-					<view class="{{index==moneyIndex?'moneyButton':'moneyButton-no'}}" >
-						{{item.ButtonAmount}}
-					</view>
-				</view>
-				
-			</view>
-			<!-- <view class="flex justify-between align-center margin-top-xl solid-bottom padding-bottom-sm">
-				<input type="text" :value="money" placeholder="请输入提现金额" class="text-24 text-left padding-left-0" placeholder-class="text-999999 text-left po"  />
-				<text class="text-FF9516 text-24">全部提现</text>
-			</view> -->
-			<view class="submit" onTap="submit">
-				确认提现
-			</view>
+      <view class="grid col-2 bg-white padding-sm radius-20 padding-tb-xl">
+          <view class="flex align-center">
+              <image class="icon-80" mode="scaleToFill" src="/static/image/jinbi.png"/>
+              <view class="margin-left">
+                  <view class="text-black bold text-34">
+                     	{{userInfo.Money?userInfo.Money:'0.00'}}
+                  </view>
+                  <view class="text-24 text-666666 padding-top-5">
+                     我的余额（元）
+                  </view>
+              </view>
+          </view>
+          <view class="flex align-center">
+              <image class="icon-80" mode="scaleToFill" src="/static/image/jinbi.png"/>
+              <view class="margin-left">
+                  <view class="text-black bold text-34">
+                      {{userInfo.Jifenbao}}
+                  </view>
+                  <view class="text-24 text-666666 padding-top-5">
+                     我的集分包（个）
+                  </view>
+              </view>
+          </view>
+      </view>
+      <view class="bg-white margin-top-sm padding-sm radius-20 padding-tb">
+          <view class="text-34 bold text-black margin-bottom">
+          提现余额
+          </view>
+          <view class="flex grid col-3 margin-top-sm">
+            <view class="text-center margin-bottom-sm" a:for="{{moneyList}}" a:for-index="index" onTap="tabMoney" data-index="{{index}}">
+              <view class="{{index==moneyIndex?'moneyButton':'moneyButton-no'}}" >
+                {{item.ButtonAmount}}
+              </view>
+            </view>
+            
+          </view>
+          <view class="submit margin-top" onTap="submit">
+            确认提现
+          </view>
+      </view>
 		</view>
 		<view class="jfb padding">
 			<view class="text-24 text-black">
