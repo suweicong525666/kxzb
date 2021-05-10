@@ -30,7 +30,7 @@
             </view>
         </view>
         <view class="grid col-3 ">
-            <view a:for="{{hbList}}" a:for-index="index" class="text-center margin-top-sm relative" onTap="choujiang" data-SoldOut="{{item.SoldOut}}" data-id="{{item.Id}}">
+            <view a:for="{{hbList}}" a:for-index="index" class="text-center margin-top-sm relative" onTap="choujiang" data-SoldOut="{{item.SoldOut}}" data-id="{{item.Id}}" data-quota="{{item.Quota}}">
                 <image class="jinbi" mode="widthFix" src="/static/image/jinbi.webp"/>
                 <view class="hbMain">
                     <view class="text-22 padding-top-xs">

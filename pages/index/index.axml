@@ -17,7 +17,7 @@
     <view class="padding-top-sm relative">
           <view class="top_r">
              <image src="/static/image/jfb.png" mode="aspectFit" class="icon-30"></image>
-             <text>集分宝：{{userInfo.Jifenbao}}</text>
+             <text>金币:{{userInfo.Coin}}</text>
           </view>
           <view class="flex justify-end padding-right-sm" >
               <image class="top_icon" src="/static/image/kf.png" mode="aspectFit"></image>
@@ -33,40 +33,47 @@
 </view>
 
 <view class="relative watch">
-    <view class="text-center text">
-        看直播领现金
-    </view>
-    <view class="text-24 text-666666 text-center">
-      直播购物巨优惠
-    </view>
-    <view class="text-center">
-      <image class="img_qian" mode="scaleToFill" src="/static/image/qian.png"/>
-    </view>
-     <view class="text-center">
+      <view class="watch_child">
+           <view class="text-center text">
+             看直播领现金
+         </view>
+          <view class="text-24 text-666666 text-center">
+            直播购物巨优惠
+          </view>
+          <view class="text-center">
+            <image class="img_qian" mode="scaleToFill" src="/static/image/qian.png"/>
+          </view>
+      </view>
+</view>
+<view class="relative watch" style="margin-top:230rpx">
+   <view class="text-center">
       <image onTap="go" class="img_anniu" mode="scaleToFill" src="/static/image/anniu.png"/>
-    </view>
+  </view>
 </view>
 
+
 <view class="text-center margin-top-sm relative" a:if="{{syalggList&&userInfo.NumberCompletions>=syalggList[0].NumberPopups&&syalggList[0].IsDone==false&&alBanShow}}">
-			<image style="width:688rpx" src="../../static/image/xs.png" mode="widthFix"></image>
-			<view class="xianshiText flex align-center">
-				<image class="icon-30" src="/static/image/jfb.png" mode="widthFix"></image>
-				<text class="text-22 text-black">点击浏览广告，可随机获得</text>
-				<text class="text-22 text-F5741D">1~{{syalggList[0].RewardAmount+1}}个集分宝</text>
-			</view>
-		</view>
+			<view class="flex justify-center">
+          <image style="width:690rpx" src="../../static/image/xs.png" mode="widthFix"></image>
+          <view class="xianshiText flex align-center">
+            <image class="icon-30" src="/static/image/jfb.png" mode="widthFix"></image>
+            <text class="text-22 text-black">点击浏览广告，可随机获得</text>
+            <text class="text-22 text-F5741D">1~{{syalggList[0].RewardAmount+1}}个集分宝</text>
+          </view>
+      </view>
+</view>
 
 	<!-- 阿里图片灯火广告 -->
-		<view class="relative margin-bottom-xl margin-top-sm">
+		<view class="relative margin-bottom-xl">
 			<view  class="flex justify-center" style="" data-num="{{syalggList[0].NumberPopups}}" data-modalInfo="{{syalggList[0].IsDone}}" data-item="{{syalggList[0]}}" data- onTap="jump_banner">
-				<ad class=""
+				<ad style="width:690rpx"
 				unit-id ="ad_tiny_2021002135640940_202105062200009918"
         onLoad="onRenderSuccess"
         onError="onRenderFail"
 				/>
 			</view>
 
-<view class="tabbar flex {{navList.length==1?'':'justify-around'}} margin-top-sm fixed-bottom">
+<view class="tabbar flex {{navList.length==1?'':'justify-around'}} margin-top-sm {{!alBanShow?'fixed-bottom':''}}">
       <button  open-type="share" class="{{navList.length==1?'margin-left-sm':''}}">
           <image onTap="tabJump" data-index="0" mode="scaleToFill" src="/static/image/yqhy.png"/>
       </button>
@@ -128,19 +135,9 @@
 						<view class="dasheds"></view>
 						<view class="margin-top-lg padding-lr relative">
 							<ad  class="modal-ad1"
-							unit-id ="ad_tiny_2021002135640940_202105062200009918"
+							unit-id ="ad_tiny_2021002135640940_202105062200009945"
                onLoad ="onRenderSuccess_rwwc"
 							/>
-							<view class="flex justify-center">
-                    <swiper class="screen-swipers modal-ad1 {{dotStyle?'square-dot':'round-dot'}}"  a:if="{{!rw_alBanShow}}"  indicator-dots="{{true}}" circular="{{true}}"
-                autoplay="{{false}}" interval="5000" duration="500">
-                      <swiper-item a:for="{{rwBanner}}" >
-                        <view class="" data-JumpType="{{item.JumpType}}" data-item="{{item}}"  onTap="tabNav">
-                          <image src="{{item.Img}}" mode="scaleToFill" style="width: 600rpx;height: 110rpx" ></image>
-                        </view>
-                      </swiper-item>
-                </swiper>
-              </view>
 						</view>
 					</view>
 					

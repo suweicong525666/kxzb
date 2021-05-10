@@ -66,7 +66,7 @@ Page({
   //获取排行榜数据
     GetRankingVersion(){
       console.log('加载中')
-      request('/api/v3/Activity/AddInvite','GET', {
+      request('/api/v2/User/GetInviteRankingVersion','GET', {
       }).then(res => {
       console.log('成功回调',res)
         this.setData({
@@ -106,7 +106,7 @@ lj(e){
       }
     },
     AddTaskCenter(id){
-       request('/api/v3/Activity/AddTaskCenter','GET', {Id:id
+       request('/api/v3/Activity/AddInvite','GET', {Id:id
       // 传参参数名：参数值,如果没有，就不需要传
       }).then(res => {
         console.log('成功回调',res)

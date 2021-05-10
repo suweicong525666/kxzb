@@ -1,9 +1,6 @@
 page{
   width: 100%;
   height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0
 }
 .top_icon{
   width:136rpx;
@@ -13,7 +10,7 @@ page{
   padding-top: 130rpx
 }
 .top_r{
-  width: 205rpx;
+  min-width: 205rpx;
   line-height: 60rpx;
   opacity: 1;
   background: #ffffff;
@@ -86,7 +83,9 @@ height: 1.5rem;
   width:100%;
   background-position: 100% 10%;
   background-size: cover;
-  background-image: url('/static/image/bj.png')
+  background-image: url('/static/image/bj.png');
+  width: 100%;
+  overflow: auto
   /* background-image: url('https://api.shupaiyun.com/api/v1/File/Get?openId=20531fc362164785b5847edf8a4e9cbf') */
 }
 .fixed-bottom{
@@ -225,5 +224,10 @@ contact-button{
   border: 4rpx dashed #ffffff;
   border-radius: 14rpx;
   padding:15rpx 25rpx;
+}
+.watch_child{
+  position: fixed;
+  width: 100%;
+  top: 6.4rem;
 }
 

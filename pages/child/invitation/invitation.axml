@@ -72,7 +72,7 @@
             </view>
         </view>
         <!-- 第1~3名 -->
-       <view class="margin-top-sm" a:for="{{rankList.RankingVersionList}}" a:for-index="index"  a:if="{{index<3}}">
+       <view class="margin-top-sm" a:for="{{rankList}}" a:for-index="index"  a:if="{{index<3}}">
           <view class="flex align-center justify-between">
             <view class="flex">
                 <image a:if="{{index==0}}" class="icon-80 margin-left-xs" mode="scaleToFill" src="/static/image/no1.png"/>
@@ -80,12 +80,9 @@
                 <image a:if="{{index==2}}" class="icon-80 margin-left-xs" mode="scaleToFill" src="/static/image/no3.png"/>
                  <image class="winIMG" mode="scaleToFill" src="{{item.HeadImg}}"/>
                 <view class="margin-left-sm">
-                    <view class="text-28 text-black padding-bottom-xs">
+                    <view class="text-28 text-black padding-top-sm">
                        	{{item.NickName?item.NickName:item.UserName}}
                     </view>
-                    <!-- <view class="text-24 text-999999">
-                      2021-03-02 19:27:06
-                    </view> -->
                 </view>
             </view>
             <view class="text-EE5C5C">
@@ -94,17 +91,14 @@
           </view>
        </view>
        <!-- 第三名后的 -->
-       <view class="margin-top-sm" a:for="{{rankList.RankingVersionList}}" a:for-index="index"  a:if="{{index>2}}">
+       <view class="margin-top-sm" a:for="{{rankList}}" a:for-index="index"  a:if="{{index>2}}">
           <view class="flex align-center justify-between">
             <view class="flex">
                   <text>{{index+1}}</text>
                  <image class="winIMG" mode="scaleToFill" src="{{item.HeadImg}}"/>
                 <view class="margin-left-sm">
-                    <view class="text-28 text-black padding-bottom-xs">
+                    <view class="text-28 text-black padding-top-sm">
                        	{{item.NickName?item.NickName:item.UserName}}
-                    </view>
-                    <view class="text-24 text-999999">
-                      2021-03-02 19:27:06
                     </view>
                 </view>
             </view>

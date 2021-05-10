@@ -9,9 +9,15 @@ Page({
   onLoad(options) {
      //引流渠道进入
     if(options.channel){
+        this.setData({
+          channel:options.channel
+        })
         var channel=options.channel;
-         console.log('有渠道参数',channel)
-       	// my.uma.trackEvent('renwu_03',{channel:1})
+         console.log('有渠道参数',channel);
+         setTimeout(()=>{
+           var myobj='{"'+options.channel+'":1}';
+           my.uma.trackEvent('zhibo_02',JSON.parse(myobj))
+        },3000)
     }
     if(options.userid){
         //获取二维码参数
@@ -200,15 +206,22 @@ Page({
   //点击去看直播
   go(){
     if(this.data.rwlist.length>0){
+      if(this.data.rwlist[0].IsDone==true){
+          my.showToast({
+            content:'今日任务已完成',
+            icon:'none'
+          });return;
+        }
         this.setData({
           nowList:this.data.rwlist[0],
           modalShow:true,
           modalname:'start'
         })
     }else{
-      my.alert({
-        content:'今日任务已完成'
-      })
+      my.showToast({
+            content:'今日任务已完成',
+            icon:'none'
+          })
     }
   },
   tabNav(e){

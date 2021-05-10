@@ -57,7 +57,7 @@
 		<view class="relative margin-bottom-xl">
 			<view  class="flex justify-center" style="" data-num="{{sdaliggList[0].NumberPopups}}" data-modalInfo="{{sdaliggList[0].IsDone}}" data-item="{{sdaliggList[0]}}"  onTap="jump_banner">
 				<ad class="ad1"
-				unit-id ="ad_tiny_2021002135640940_202105062200009935" onLoad="onRenderSuccess"
+				unit-id ="ad_tiny_2021002135640940_202105062200009934" onLoad="onRenderSuccess"
 
 				/>
 			</view>
@@ -206,14 +206,14 @@
 						<view class="margin-top-lg padding-lr padding-bottom-0 relative" style="height: 130rpx;"  onTap="jump_bannerTs">
 							<view class="flex justify-center">
 								<ad class="sign-ad1"
-								unit-id ="ad_tiny_2021002135640940_202105062200009945"
+								unit-id ="ad_tiny_2021002135640940_202105062200009935"
 								onLoad ="onRenderSuccess_sign"
 								onError ="onRenderFail"
 								/>
 							</view>
 						</view>
 						<view class="flex justify-center padding-sm margin-top">
-							<text class="text-black text-24">点击上方广告浏览{{alggList[0].BrowseTime}}秒完成签到，</text>
+							<text class="text-black text-24">点击上方广告浏览{{list.SignOutputList[list.Qd].BrowseTime}}秒完成签到，</text>
 							<text class="text-24 text-FF4C5B">领取奖励》</text>
 						</view>
 					</view>

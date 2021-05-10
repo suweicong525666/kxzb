@@ -132,6 +132,7 @@ choujiang(e){
   console.log(e)
   let SoldOut=e.currentTarget.dataset.SoldOut;
   let id=e.currentTarget.dataset.id;
+  let quota=e.currentTarget.dataset.quota;
    request('/api/v3/Activity/GetActivityLotteryList','GET', {
       // 传参参数名：参数值,如果没有，就不需要传
       }).then(res => {
@@ -142,13 +143,16 @@ choujiang(e){
             type:'none'
           });
         }else{
-      if(SoldOut==true){
-              my.showToast({
-                content:'不可重复兑换',
-                icon:'none'
-              });return;
-            }
-            this.SaveActivityLottery(id)
+          if(SoldOut==true){
+                  my.showToast({
+                    content:'奖励已经兑完，下次加快手速哦',
+                    icon:'none'
+                  });return;
+                }
+          if(quota<1){
+               this.SaveActivityLottery(id)
+          }
+           
         }
       })
   

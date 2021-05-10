@@ -344,7 +344,7 @@ onCompletes(data){
       },
       //点击签到广告
 			jump_bannerTs(){
-				var list=this.data.list.SignOutputList[this.data.nextDay-1];
+				var list=this.data.list.SignOutputList[this.data.list.Qd];
 				console.log('您点击了广告',list);
 				this.setData({
             	BrowseTimes:list.BrowseTime,

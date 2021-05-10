@@ -1,6 +1,7 @@
 {
-  "navigationStyle":"custom",
+   "defaultTitle": "开心直播",
   "allowsBounceVertical": "NO",
-  "transparentTitle": "always",
+  "titleBarColor": "#ee5c5c",
+  "transparentTitle": "auto",
   "titlePenetrate": "YES"
 }
