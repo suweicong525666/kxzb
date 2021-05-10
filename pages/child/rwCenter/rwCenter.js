@@ -586,7 +586,7 @@ Page({
       let finshNum=this.data.userInfo.NumberCompletions;
       if(list[index].IsTaskCent==true){
           my.showToast({
-            content:'已经领取过任务',
+            content:'已经领取过奖励',
             type:'none'
           });return;
       }
