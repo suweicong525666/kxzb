@@ -309,10 +309,9 @@
 	height: 100rpx;
 }
 .text-overflow{
-	white-space: nowrap;
-　　overflow: hidden;
-　　text-overflow: ellipsis;
-	
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis
 }
 .bg-FFF3E5{
 	background-color: #FFF3E5;
@@ -612,4 +611,7 @@
 }
 .text-FFEBAC{
   color: #FFEBAC
+}
+.margin-top-60{
+  margin-top: 60rpx
 }

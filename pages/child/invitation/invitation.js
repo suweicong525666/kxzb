@@ -23,7 +23,7 @@ Page({
 				title:'开心直播',
 				path:'pages/index/index?userid='+this.data.userInfo.AliAppletOpenId,
 				desc:'开心直播',
-				bgImgUrl:'/static/image/iv.jpg'
+				bgImgUrl:'/static/image/fx.webp'
 			}
     },
      //获取用户信息
@@ -39,7 +39,7 @@ Page({
       })
   },
   GetTaskCenterPage(){
-    request('/api/v3/Activity/GetTaskCenterPage','GET', {
+    request('/api/v3/Activity/GetInvitePage','GET', {
       // 传参参数名：参数值,如果没有，就不需要传
       }).then(res => {
         console.log('成功回调',res)
@@ -66,9 +66,7 @@ Page({
   //获取排行榜数据
     GetRankingVersion(){
       console.log('加载中')
-      request('/api/v2/User/GetRankingVersion/GetRankingVersion','GET', {
-      // 传参参数名：参数值,如果没有，就不需要传
-      page:1,size:10,Type:this.data.tabIndex+1
+      request('/api/v3/Activity/AddInvite','GET', {
       }).then(res => {
       console.log('成功回调',res)
         this.setData({
@@ -86,5 +84,55 @@ Page({
       content:'加载中'
     })
     this.GetRankingVersion()
-  }
+  },
+  jump_singRule(){
+    my.navigateTo({
+      url: '/pages/child/signRule/signRule'
+    });
+  },
+lj(e){
+      console.log(e);
+      let index=e.currentTarget.dataset.index;
+      let list=this.data.topList.list;
+      let finshNum=this.data.userInfo.NumberCompletions;
+      if(list[index].IsTaskCent==true){
+          my.showToast({
+            content:'已经领取过任务',
+            type:'none'
+          });return;
+      }
+      if(finshNum>=list[index].Number){
+          this.AddTaskCenter(list[index].Id)
+      }
+    },
+    AddTaskCenter(id){
+       request('/api/v3/Activity/AddTaskCenter','GET', {Id:id
+      // 传参参数名：参数值,如果没有，就不需要传
+      }).then(res => {
+        console.log('成功回调',res)
+          if(res.success){
+            my.showToast({
+              content:'领取成功',
+              icon:'success'
+            })
+            this.GetUserModel()
+          }else{
+            my.showToast({
+              content:res.msg,
+              icon:'none'
+            })
+          }
+      })
+    },
+    jump_singRule(){
+      my.navigateTo({
+        url: '/pages/child/singRule/singRule'
+      });
+    },
+     jump(){
+      console.log('11321')
+       my.navigateTo({
+        url:'/pages/child/signRule/signRule'
+      });return;
+    }
 });

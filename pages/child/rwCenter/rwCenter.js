@@ -17,13 +17,13 @@ Page({
   },
  
   onShow(){
-      // 页面显示
-      var token=my.getStorageSync({ key: 'token' }).data;
-      if(token){
-        this.GetUserModel();
-        this.GetTaskList();
-        this.GetAdvertList();
-      }
+      // // 页面显示
+      // var token=my.getStorageSync({ key: 'token' }).data;
+      // if(token){
+      //   this.GetUserModel();
+      //   this.GetTaskList();
+      //   this.GetAdvertList();
+      // }
     if(this.data.time){
 					var timestamp = Date.parse(new Date());
 					timestamp = timestamp / 1000; 
@@ -97,7 +97,7 @@ Page({
         this.setData({
           userInfo:res.data
         });
-        this.GetTaskCenterPage()
+        this.GetTaskCenterPage();
       })
   },
   //获取完成几个任务领取几个提示
@@ -120,7 +120,7 @@ Page({
              this.setData({
                rwlist:rw.data
              })
-              my.uma.trackEvent('renwu_02',{'show':1})
+              my.uma.trackEvent('zhibo_01',{'show':1})
 					}
         })
       },
@@ -186,7 +186,7 @@ Page({
               that.setData({
                 timets:''
               })
-							that.$uma.trackEvent('renwu_02',{'success':1});
+							that.$uma.trackEvent('zhibo_01',{'success':1});
 					}else{
 						   my.showToast({
 							content:res.msg,
@@ -216,7 +216,7 @@ Page({
                 time:'',
                 modalname:''
               })
-							that.$uma.trackEvent('renwu_02',{'success':1});
+							that.$uma.trackEvent('zhibo_01',{'success':1});
 					}else{
 						   my.showToast({
                   content:res.msg,
@@ -315,7 +315,7 @@ Page({
 				request('/api/v3/Activity/AddReward/AddReward','POST',{taskId:this.data.Id},
 				).then(res=>{
           if(res.success==true){
-                my.uma.trackEvent('renwu_02',{'success':1});
+                my.uma.trackEvent('zhibo_01',{'success':1});
                this.setData({
                    Id:'',
                    RewardAmount:res.data.RewardAmount,
@@ -345,7 +345,7 @@ Page({
                           sceneId:item.Component
                     })
                   
-               my.uma.trackEvent('renwu_02',{'click':1})
+               my.uma.trackEvent('zhibo_01',{'click':1})
           }
           this.setData({
             Id:item.Id
@@ -365,7 +365,7 @@ Page({
                       Id:item.Id
                   })
                   that.watchTaobo();
-                  my.uma.trackEvent('renwu_02',{'click':1})
+                  my.uma.trackEvent('zhibo_01',{'click':1})
               }
               my.navigateToMiniProgram({
                 appId:item.APPID,
@@ -383,7 +383,7 @@ Page({
                 Id:item.Id
             })
             that.watchTaobo();
-						my.uma.trackEvent('renwu_02',{'click':1})
+						my.uma.trackEvent('zhibo_01',{'click':1})
 					}
 					my.navigateToMiniProgram({
 						appId:item.APPID,
@@ -402,7 +402,7 @@ Page({
                 Id:item.Id
             })
             that.watchTaobo();
-						my.uma.trackEvent('renwu_02',{'click':1})
+						my.uma.trackEvent('zhibo_01',{'click':1})
 					}
 					my.ap.navigateToAlipayPage({
 						path:'https://render.alipay.com/p/s/i/?scheme=alipays%3A%2F%2Fplatformapi%2Fstartapp%3FappId%3D20000067%2526url%3Dhttps://api.shupaiyun.com/jumptb1.html?id='+item.Id,
@@ -426,7 +426,7 @@ Page({
                 Id:item.Id
             })
             that.watchTaobo();
-						my.uma.trackEvent('renwu_02',{'click':1})
+						my.uma.trackEvent('zhibo_01',{'click':1})
 					}
 					my.ap.navigateToAlipayPage({
 						path:item.AliAdvertisingLink,
@@ -450,7 +450,7 @@ Page({
             RewardAmount:item.RewardAmount,
             modalname:'zhuomian'
           })
-           my.uma.trackEvent('renwu_02',{'click':1})
+           my.uma.trackEvent('zhibo_01',{'click':1})
            return;
 				}
 				if(JumpType==8){
@@ -484,7 +484,7 @@ Page({
                 Id:item.Id
             })
             that.watchTaobo();
-						my.uma.trackEvent('renwu_02',{'click':1})
+						my.uma.trackEvent('zhibo_01',{'click':1})
 					}
               my.navigateToMiniProgram({
                   appId: item.APPID,
@@ -579,4 +579,49 @@ Page({
             url:'/pages/child/allTasks/allTasks'
           })
     },
+    lj(e){
+      console.log(e);
+      let index=e.currentTarget.dataset.index;
+      let list=this.data.topList.list;
+      let finshNum=this.data.userInfo.NumberCompletions;
+      if(list[index].IsTaskCent==true){
+          my.showToast({
+            content:'已经领取过任务',
+            type:'none'
+          });return;
+      }
+      if(finshNum>=list[index].Number){
+          this.AddTaskCenter(list[index].Id)
+      }
+    },
+    AddTaskCenter(id){
+       request('/api/v3/Activity/AddTaskCenter','GET', {Id:id
+      // 传参参数名：参数值,如果没有，就不需要传
+      }).then(res => {
+        console.log('成功回调',res)
+          if(res.success){
+            my.showToast({
+              content:'领取成功',
+              icon:'success'
+            })
+            this.GetUserModel()
+          }else{
+            my.showToast({
+              content:res.msg,
+              icon:'none'
+            })
+          }
+      })
+    },
+    jump_singRule(){
+      my.navigateTo({
+        url: '/pages/child/singRule/singRule'
+      });
+    },
+    jump(){
+      console.log('11321')
+       my.navigateTo({
+        url:'/pages/child/signRule/signRule'
+      });return;
+    }
 });

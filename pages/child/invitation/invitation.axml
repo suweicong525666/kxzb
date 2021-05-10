@@ -7,41 +7,41 @@
             <view class="text-black text-34 bold">
               完成任务领奖励
             </view>
-            <view class="text-24 text-EE5C5C flex align-center">
+            <view class="text-24 text-EE5C5C flex align-center" onTap="jump">
                 <image style="margin-right:5rpx" class="icon-25" mode="scaleToFill" src="/static/image/gt.png"/>
                 <text>活动规则</text>
             </view>
         </view>
         <view class="margin-top-xs">
           <text class="text-24 text-666666">当前进度：</text>
-          <text class="text-24 text-EE5C5C">{{userInfo.NumberCompletions}}/</text>
-          <text class="text-24 text-666666">{{topList.Sum}}</text>
+          <text class="text-24 text-EE5C5C">{{topList.count}}/</text>
+          <text class="text-24 text-666666">{{topList.sum}}</text>
         </view>
         <view class="padding-tb margin-top-sm">
             <view class="ph_bg flex">
-              <view class="bg-red" style="width:{{topList.Sum/userInfo.NumberCompletions}}%">
+              <view class="bg-red" style="width:{{topList.count/topList.sum*100}}%">
                 
               </view>
             </view>
             <view class="flex justify-around align-center" style="margin-top:-0.7rem;width:670rpx">
-               <view>
+               <view onTap="lj" data-index="0">
                   <view class="text-center">
-                    <image class="jindu_img" mode="scaleToFill" src="/static/image/qian.png"/>
+                    <image class="jindu_img {{userInfo.NumberCompletions>=topList.lsit[0].Number?'box':''}}" mode="scaleToFill" src="/static/image/qian.png"/>
                   </view>
                </view>
-               <view>
+               <view onTap="lj" data-index="1">
                   <view class="text-center">
-                    <image class="jindu_img" mode="scaleToFill" src="/static/image/qian.png"/>
+                    <image class="jindu_img {{userInfo.NumberCompletions>=topList.lsit[1].Number?'box':''}}" mode="scaleToFill" src="/static/image/qian.png"/>
                   </view>
                </view>
-                <view>
+                <view onTap="lj" data-index="2">
                   <view class="text-center">
-                    <image class="jindu_img" mode="scaleToFill" src="/static/image/qian.png"/>
+                    <image class="jindu_img {{userInfo.NumberCompletions>=topList.lsit[2].Number?'box':''}}" mode="scaleToFill" src="/static/image/qian.png"/>
                   </view>
                </view>
-                <view>
+                <view onTap="lj" data-index="3">
                   <view class="text-center">
-                    <image class="jindu_img2" mode="scaleToFill" src="/static/image/dl.webp"/>
+                    <image class="jindu_img2 {{userInfo.NumberCompletions>=topList.lsit[3].Number?'box':''}}" mode="scaleToFill" src="/static/image/dl.webp"/>
                   </view>
                </view>
             </view>
@@ -63,7 +63,7 @@
            <text class="icon-ph"></text>
            <text class="icon-phsmall"></text>
         </view>
-        <view a:if="{{rankList.RankingVersionList.length==0}}">
+        <view a:if="{{rankList.length==0}}">
             <view class="text-center">
                 <image class="zw" mode="widthFix" src="/static/image/zw.png"/>
             </view>
@@ -83,13 +83,13 @@
                     <view class="text-28 text-black padding-bottom-xs">
                        	{{item.NickName?item.NickName:item.UserName}}
                     </view>
-                    <view class="text-24 text-999999">
+                    <!-- <view class="text-24 text-999999">
                       2021-03-02 19:27:06
-                    </view>
+                    </view> -->
                 </view>
             </view>
             <view class="text-EE5C5C">
-                +{{item.Income}}
+                +{{item.NumberCompletions}}
             </view>
           </view>
        </view>

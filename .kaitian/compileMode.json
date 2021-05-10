@@ -23,6 +23,10 @@
     {
       "title": "金币兑换",
       "page": "pages/child/exchange/exchange"
+    },
+    {
+      "title": "兑换记录",
+      "page": "pages/child/exchangeDetail/exchangeDetail"
     }
   ]
 }

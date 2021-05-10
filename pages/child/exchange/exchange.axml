@@ -8,7 +8,7 @@
             <view class="text-black text-34 bold">
               金币兑换
             </view>
-            <view class="text-24 text-EE5C5C flex align-center">
+            <view class="text-24 text-EE5C5C flex align-center" onTap="jump_exchangeDetail">
                 <image style="margin-right:5rpx" class="icon-25" mode="scaleToFill" src="/static/image/gt.png"/>
                 <text>兑换记录</text>
             </view>
@@ -20,11 +20,11 @@
         </view>
         <view class="flex justify-between bg-FFF0EF padding-sm radius-20 margin-top-sm margin-bottom-sm">
             <view class="text-black text-24">
-                {{hbList[0].ActivityTime}}即将开始
+                {{hbList[0].ActivityTime}}开始
             </view>
-            <view class="text-EE5C5C text-24 flex" a:if="{{cdShow}}">
+            <view class="text-EE5C5C text-24 flex" a:if="{{cdShow&&hbList[0].Time>0}}">
                  <view>
-                   <i-count-down target='{{targetTime}}' countdown-class='big' clear-timer='{{clearTimer}}' ref='saveChildRef6'> 
+                   <i-count-down target='{{targetTime}}' countdown-class='big' clear-timer='{{clearTimer}}' onCallback='myLinsterner' ref='saveChildRef6'> 
                  </view>
                  <text> 后开始</text>
             </view>
@@ -41,7 +41,7 @@
                     </view>
                     <view class="text-white padding-top-xs">
                       <text class="text-34">￥</text>
-                      <text class="text-56">{{item.Quantity}}</text>
+                      <text class="text-56">{{item.Quota}}</text>
                     </view>
                 </view>
             </view>
@@ -67,7 +67,7 @@
 						<image class="icon-80" src="{{item.Img}}" mode="widthFix"></image>
 						<view class="margin-left-sm" style="height:80rpx">
 							<view class="text-28 bold text-F5741D flex align-center" style="height:50%;padding-top:4rpx">
-								<text>{{item.Title}}</text>
+								<text class="text-overflow" style="max-width: 200rpx;">{{item.Title}}</text>
 								<view class="flex align-center margin-left-sm">
 									<image a:if="item.Type==2" class="icon-34" src="/static/image/jfb.png" mode="widthFix"></image>
 									<image a:else class="icon-34" src="/static/image/jb.png" mode="widthFix"></image>
@@ -111,7 +111,7 @@
 						<view class="dasheds"></view>
 						<view class="margin-top-lg padding-lr relative" style="height: 130rpx">
 							<ad  class="modal-ad1"
-							unit-id ="ad_tiny_2021002129606766_202104192200008894"
+							unit-id ="ad_tiny_2021002135640940_202105062200009918"
              onLoad ="onRenderSuccess_rwwc"
 							/>
 							<view class="flex justify-center">
@@ -275,7 +275,7 @@
                 <view class="text-32 text-white flex align-center margin-top-xl">
                     <text>2.点击</text>
                     <image class="icon-62" mode="scaleToFill" src="/static/image/tuichu.png"/>
-                    <text>退出[开心赚点]</text>
+                    <text>退出[开心直播]</text>
 						    </view>
                 <view class="text-32 text-white flex align-center margin-top">
                     <text>3.从手机的桌面打开</text>
@@ -284,7 +284,7 @@
                            <image class="icon-130" mode="scaleToFill" src="/static/image/logo1.png"/>
                        </view>
                        <view class="text-center">
-                             <text>[开心赚点]</text>
+                             <text>[开心直播]</text>
                        </view>
                     </view>
 						    </view>

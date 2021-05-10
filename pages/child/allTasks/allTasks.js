@@ -112,7 +112,7 @@ Page({
                     })
                   }
                   console.log('长度',this.list.length)
-                  this.$uma.trackEvent('renwu_02',{'show':this.list.length})
+                  this.$uma.trackEvent('zhibo_01',{'show':this.list.length})
           }else{
               this.setData({
                 	noMore:true,
@@ -137,7 +137,7 @@ Page({
                           lifeSutittle:item.Subtitle,
                           sceneId:item.Component
                     })
-               my.uma.trackEvent('renwu_02',{'click':1})
+               my.uma.trackEvent('zhibo_01',{'click':1})
           }
           this.setData({
             Id:item.Id
@@ -157,7 +157,7 @@ Page({
                       Id:item.Id
                   })
                   that.watchTaobo();
-                  my.uma.trackEvent('renwu_02',{'click':1})
+                  my.uma.trackEvent('zhibo_01',{'click':1})
               }
               my.navigateToMiniProgram({
                 appId:item.APPID,
@@ -175,7 +175,7 @@ Page({
                 Id:item.Id
             })
             that.watchTaobo();
-						my.uma.trackEvent('renwu_02',{'click':1})
+						my.uma.trackEvent('zhibo_01',{'click':1})
 					}
 					my.navigateToMiniProgram({
 						appId:item.APPID,
@@ -194,7 +194,7 @@ Page({
                 Id:item.Id
             })
             that.watchTaobo();
-						my.uma.trackEvent('renwu_02',{'click':1})
+						my.uma.trackEvent('zhibo_01',{'click':1})
 					}
 					my.ap.navigateToAlipayPage({
 						path:'https://render.alipay.com/p/s/i/?scheme=alipays%3A%2F%2Fplatformapi%2Fstartapp%3FappId%3D20000067%2526url%3Dhttps://api.shupaiyun.com/jumptb1.html?id='+item.Id,
@@ -218,7 +218,7 @@ Page({
                 Id:item.Id
             })
             that.watchTaobo();
-						my.uma.trackEvent('renwu_02',{'click':1})
+						my.uma.trackEvent('zhibo_01',{'click':1})
 					}
 					my.ap.navigateToAlipayPage({
 						path:item.AliAdvertisingLink,
@@ -239,7 +239,7 @@ Page({
                 Id:item.Id
             })
             that.watchTaobo();
-						my.uma.trackEvent('renwu_02',{'click':1})
+						my.uma.trackEvent('zhibo_01',{'click':1})
 					}
               my.navigateToMiniProgram({
                   appId: item.APPID,
@@ -313,7 +313,7 @@ Page({
                     modalShow:true
                 })
               
-                my.uma.trackEvent('renwu_02',{'success':1});
+                my.uma.trackEvent('zhibo_01',{'success':1});
                 }else{
                     my.showToast({
                        type: 'none',
@@ -341,7 +341,7 @@ Page({
 				request('/api/v3/Activity/AddReward/AddReward','POST',{taskId:this.data.Id},
 				).then(res=>{
           if(res.success==true){
-                my.uma.trackEvent('renwu_02',{'success':1});
+                my.uma.trackEvent('zhibo_01',{'success':1});
                this.setData({
                    Id:'',
                    RewardAmount:res.data.RewardAmount,

@@ -1,0 +1,24 @@
+<view class="" >
+			<view class="padding-lr bg-white margin-sm radius-20 ">
+				<view class="flex justify-between padding  solid-bottom " a:for="{{list}}">
+					<view class="flex">
+						<view class="margin-left-sm" style="height:80rpx">
+							<view class="text-28 bold text-EE5C5C flex align-center" style="height:50%;padding-top:4rpx">
+								<view class="flex align-center ">
+									<text class="text-black text-30 bold  padding-top-xss">{{item.Title}}</text>
+								</view>
+							</view>
+							<view class="text-999999 text-24 flex align-end" style="height:50%" >
+								<text class="text-24 text-8B8B8B">{{item.CreateTime}}</text>
+							</view>
+						</view>
+					</view>
+					<view class="">
+						<view class="margin-top-xs text-EE5C5C text-right flex align-center">
+                <image class="icon-50" mode="widthFix" src="/static/image/jinbi.png"/>
+                <text class="text-36 text-EE5C5C margin-left-sm">+{{item.ChangeValue}}</text>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>

@@ -68,3 +68,13 @@ page{
   background: #f37065;
   border-radius: 28rpx;
 }
+.center-b{
+  width: 1rpx;
+  height: 85rpx;
+  opacity: 1;
+  border-left: 1px solid #e5e5e5;
+  position: absolute;
+  right: 10rpx;
+  top: 0;
+  display: inline-block
+}

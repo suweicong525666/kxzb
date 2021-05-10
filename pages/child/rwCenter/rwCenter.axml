@@ -8,7 +8,7 @@
             <view class="text-black text-34 bold">
               完成任务领奖励
             </view>
-            <view class="text-24 text-EE5C5C flex align-center">
+            <view class="text-24 text-EE5C5C flex align-center" onTap="jump">
                 <image style="margin-right:5rpx" class="icon-25" mode="scaleToFill" src="/static/image/gt.png"/>
                 <text>活动规则</text>
             </view>
@@ -16,38 +16,38 @@
         <view class="margin-top-xs">
           <text class="text-24 text-666666">当前进度：</text>
           <text class="text-24 text-EE5C5C">{{userInfo.NumberCompletions}}/</text>
-          <text class="text-24 text-666666">{{userInfo.Sum}}</text>
+          <text class="text-24 text-666666">{{topList.sum}}</text>
         </view>
         <view class="padding-tb margin-top-sm">
             <view class="ph_bg flex">
-              <view class="bg-red" style="width:{{userInfo.Sum/userInfo.NumberCompletions}}%">
+              <view class="bg-red" style="width:{{userInfo.NumberCompletions/topList.sum*100}}%">
                 
               </view>
             </view>
             <view class="flex justify-around align-center" style="margin-top:-0.7rem;width:670rpx">
-               <view>
+               <view onTap="lj" data-index="0">
                   <view class="text-center">
-                    <image class="jindu_img" mode="scaleToFill" src="/static/image/qian.png"/>
+                    <image class="jindu_img {{userInfo.NumberCompletions>=topList.lsit[0].Number?'box':''}}" mode="widthFix" src="/static/image/jinbi.png"/>
                   </view>
                </view>
-               <view>
+               <view onTap="lj" data-index="1">
                   <view class="text-center">
-                    <image class="jindu_img" mode="scaleToFill" src="/static/image/qian.png"/>
+                    <image class="jindu_img {{userInfo.NumberCompletions>=topList.lsit[1].Number?'box':''}}" mode="widthFix" src="/static/image/jinbi.png"/>
                   </view>
                </view>
-                <view>
+                <view onTap="lj" data-index="2">
                   <view class="text-center">
-                    <image class="jindu_img" mode="scaleToFill" src="/static/image/qian.png"/>
+                    <image class="jindu_img {{userInfo.NumberCompletions>=topList.lsit[2].Number?'box':''}}" mode="widthFix" src="/static/image/jinbi.png"/>
                   </view>
                </view>
-                <view>
+                <view onTap="lj" data-index="3">
                   <view class="text-center">
-                    <image class="jindu_img2" mode="scaleToFill" src="/static/image/dl.webp"/>
+                    <image class="jindu_img2 {{userInfo.NumberCompletions>=topList.lsit[3].Number?'box':''}}" mode="widthFix" src="/static/image/dl.webp"/>
                   </view>
                </view>
             </view>
-            <view class="flex {{topList.length==4?'justify-around':'padding-left'}} align-center text-24 text-666666" style="width:650rpx">
-               <view a:for="{{topList}}">
+            <view class="flex {{topList.list.length==4?'justify-around':'padding-left'}} align-center text-24 text-666666" style="width:650rpx">
+               <view a:for="{{topList.list}}">
                   完成{{item.Number}}个
                </view>
             </view>
@@ -72,7 +72,7 @@
 						<image class="icon-80" src="{{item.Img}}" mode="widthFix"></image>
 						<view class="margin-left-sm" style="height:80rpx">
 							<view class="text-28 bold text-F5741D flex align-center" style="height:50%;padding-top:4rpx">
-								<text>{{item.Title}}</text>
+								<text class="text-overflow" style="max-width: 200rpx;">{{item.Title}}</text>
 								<view class="flex align-center margin-left-sm">
 									<image a:if="item.Type==2" class="icon-34" src="/static/image/jfb.png" mode="widthFix"></image>
 									<image a:else class="icon-34" src="/static/image/jb.png" mode="widthFix"></image>
@@ -115,7 +115,7 @@
 						<view class="dasheds"></view>
 						<view class="margin-top-lg padding-lr relative" style="height: 130rpx">
 							<ad  class="modal-ad1"
-							unit-id ="ad_tiny_2021002129606766_202104192200008894"
+							unit-id ="ad_tiny_2021002135640940_202105062200009918"
              onLoad ="onRenderSuccess_rwwc"
 							/>
 							<view class="flex justify-center">
@@ -154,7 +154,7 @@
 						<view class="margin-top-lg padding-lr padding-bottom-0 relative" style="height: 130rpx;"  onTap="jump_bannerTs">
 							<view class="flex justify-center">
 								<ad class="sign-ad1"
-								unit-id ="ad_tiny_2021002129606766_202104142200008656"
+								unit-id ="banner：ad_tiny_2021002135640940_202105062200009945"
 								onLoad ="onRenderSuccess_sign"
 								onError ="onRenderFail"
 								/>
@@ -279,7 +279,7 @@
                 <view class="text-32 text-white flex align-center margin-top-xl">
                     <text>2.点击</text>
                     <image class="icon-62" mode="scaleToFill" src="/static/image/tuichu.png"/>
-                    <text>退出[开心赚点]</text>
+                    <text>退出[开心直播]</text>
 						    </view>
                 <view class="text-32 text-white flex align-center margin-top">
                     <text>3.从手机的桌面打开</text>
@@ -288,7 +288,7 @@
                            <image class="icon-130" mode="scaleToFill" src="/static/image/logo1.png"/>
                        </view>
                        <view class="text-center">
-                             <text>[开心赚点]</text>
+                             <text>[开心直播]</text>
                        </view>
                     </view>
 						    </view>
@@ -306,4 +306,8 @@
         	<ad a:for="{{15}}" class="ad1"
 				unit-id ="ad_tiny_2021002129606766_202103172200007858"
 				/>
+    </view>
+
+    <view class="box">
+      
     </view>

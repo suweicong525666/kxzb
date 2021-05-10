@@ -16,7 +16,7 @@ Page({
     downNum:0,
     show:true,
     cdShow:false,
-     resourceId: "AD_20210325000000100457"
+     resourceId: "AD_20210325000000100457",
   },
   onLoad() {
     this.setData({
@@ -96,7 +96,11 @@ Page({
 			}
   },
 
-     
+jump_exchangeDetail(){
+  my.navigateTo({
+    url: '/pages/child/exchangeDetail/exchangeDetail'
+  });
+} ,    
    //获取用户信息
   GetUserModel(){
       request('/api/v2/User/GetUserDetail/GetUserModel','GET', {
@@ -177,7 +181,7 @@ choujiang(e){
              this.setData({
                rwlist:rw.data
              })
-              my.uma.trackEvent('renwu_02',{'show':1})
+              my.uma.trackEvent('zhibo_01',{'show':1})
 					}
         })
       },
@@ -243,7 +247,7 @@ choujiang(e){
               that.setData({
                 timets:''
               })
-							that.$uma.trackEvent('renwu_02',{'success':1});
+							that.$uma.trackEvent('zhibo_01',{'success':1});
 					}else{
 						   my.showToast({
 							content:res.msg,
@@ -273,7 +277,7 @@ choujiang(e){
                 time:'',
                 modalname:''
               })
-							that.$uma.trackEvent('renwu_02',{'success':1});
+							that.$uma.trackEvent('zhibo_01',{'success':1});
 					}else{
 						   my.showToast({
                   content:res.msg,
@@ -372,7 +376,7 @@ choujiang(e){
 				request('/api/v3/Activity/AddReward/AddReward','POST',{taskId:this.data.Id},
 				).then(res=>{
           if(res.success==true){
-                my.uma.trackEvent('renwu_02',{'success':1});
+                my.uma.trackEvent('zhibo_01',{'success':1});
                this.setData({
                    Id:'',
                    RewardAmount:res.data.RewardAmount,
@@ -402,7 +406,7 @@ choujiang(e){
                           sceneId:item.Component
                     })
                   
-               my.uma.trackEvent('renwu_02',{'click':1})
+               my.uma.trackEvent('zhibo_01',{'click':1})
           }
           this.setData({
             Id:item.Id
@@ -422,7 +426,7 @@ choujiang(e){
                       Id:item.Id
                   })
                   that.watchTaobo();
-                  my.uma.trackEvent('renwu_02',{'click':1})
+                  my.uma.trackEvent('zhibo_01',{'click':1})
               }
               my.navigateToMiniProgram({
                 appId:item.APPID,
@@ -440,7 +444,7 @@ choujiang(e){
                 Id:item.Id
             })
             that.watchTaobo();
-						my.uma.trackEvent('renwu_02',{'click':1})
+						my.uma.trackEvent('zhibo_01',{'click':1})
 					}
 					my.navigateToMiniProgram({
 						appId:item.APPID,
@@ -459,7 +463,7 @@ choujiang(e){
                 Id:item.Id
             })
             that.watchTaobo();
-						my.uma.trackEvent('renwu_02',{'click':1})
+						my.uma.trackEvent('zhibo_01',{'click':1})
 					}
 					my.ap.navigateToAlipayPage({
 						path:'https://render.alipay.com/p/s/i/?scheme=alipays%3A%2F%2Fplatformapi%2Fstartapp%3FappId%3D20000067%2526url%3Dhttps://api.shupaiyun.com/jumptb1.html?id='+item.Id,
@@ -483,7 +487,7 @@ choujiang(e){
                 Id:item.Id
             })
             that.watchTaobo();
-						my.uma.trackEvent('renwu_02',{'click':1})
+						my.uma.trackEvent('zhibo_01',{'click':1})
 					}
 					my.ap.navigateToAlipayPage({
 						path:item.AliAdvertisingLink,
@@ -507,7 +511,7 @@ choujiang(e){
             RewardAmount:item.RewardAmount,
             modalname:'zhuomian'
           })
-           my.uma.trackEvent('renwu_02',{'click':1})
+           my.uma.trackEvent('zhibo_01',{'click':1})
            return;
 				}
 				if(JumpType==8){
@@ -541,7 +545,7 @@ choujiang(e){
                 Id:item.Id
             })
             that.watchTaobo();
-						my.uma.trackEvent('renwu_02',{'click':1})
+						my.uma.trackEvent('zhibo_01',{'click':1})
 					}
               my.navigateToMiniProgram({
                   appId: item.APPID,
@@ -636,4 +640,9 @@ choujiang(e){
             url:'/pages/child/allTasks/allTasks'
           })
     },
+    myLinsterner(e) {
+        this.setData({
+            status: "已经开始"
+        });
+    }
 });

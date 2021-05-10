@@ -3,14 +3,15 @@ Page({
   data:{
     modalShow:false,
     page:1,
-    size:10
+    size:10,
+    number:0,
   },
   onLoad(options) {
      //引流渠道进入
     if(options.channel){
         var channel=options.channel;
          console.log('有渠道参数',channel)
-       	my.uma.trackEvent('renwu_03',{channel:1})
+       	// my.uma.trackEvent('renwu_03',{channel:1})
     }
     if(options.userid){
         //获取二维码参数
@@ -124,6 +125,11 @@ Page({
         url:'/pages/child/sign/sign'
       });return
      }
+     if(index==1){
+        this.setData({
+          number:1
+        })
+     }
       if(index==2){
          my.navigateTo({
         url:'/pages/child/rwCenter/rwCenter'
@@ -154,12 +160,15 @@ Page({
   //获取任务数据
   GetTaskList(){
     	request('/api/v2/Activity/GetTaskList/GetTaskList','GET',{TaskArea:'dh&',page:this.page,size:this.size},
-				).then(rw=>{
-					if(rw.success){
-             this.setData({
-               navList:rw.data
+				).then(dh=>{
+					if(dh.success){
+						let navList=dh.data;
+						for(var i=0;i<navList.length;i++){
+							navList[i].IsDone=true
+            }
+              this.setData({
+               navList:navList
              })
-
 					}
         })
       	request('/api/v2/Activity/GetTaskList/GetTaskList','GET',{TaskArea:'rw&',page:this.page,size:this.size},
@@ -168,7 +177,23 @@ Page({
              this.setData({
                rwlist:rw.data
              })
-              // my.uma.trackEvent('renwu_02',{'show':1})
+              my.uma.trackEvent('zhibo_01',{'show':1})
+					}
+        })
+         request('/api/v2/Activity/GetTaskList/GetTaskList','GET',{TaskArea:'syaligg'},
+				).then(syaligg=>{
+					if(syaligg.success){
+             this.setData({
+               syalggList:syaligg.data
+             })
+					}
+        })
+         request('/api/v2/Activity/GetTaskList/GetTaskList','GET',{TaskArea:'tsrwgg'},
+				).then(tsrwgg=>{
+					if(tsrwgg.success){
+            this.setData({
+               tsrwggList:tsrwgg.data
+             })
 					}
         })
   },
@@ -201,7 +226,7 @@ Page({
                           sceneId:item.Component
                     })
                   
-               my.uma.trackEvent('renwu_02',{'click':1})
+               my.uma.trackEvent('zhibo_01',{'click':1})
           }
           this.setData({
             Id:item.Id
@@ -221,7 +246,7 @@ Page({
                       Id:item.Id
                   })
                   that.watchTaobo();
-                  my.uma.trackEvent('renwu_02',{'click':1})
+                  my.uma.trackEvent('zhibo_01',{'click':1})
               }
               my.navigateToMiniProgram({
                 appId:item.APPID,
@@ -239,7 +264,7 @@ Page({
                 Id:item.Id
             })
             that.watchTaobo();
-						my.uma.trackEvent('renwu_02',{'click':1})
+						my.uma.trackEvent('zhibo_01',{'click':1})
 					}
 					my.navigateToMiniProgram({
 						appId:item.APPID,
@@ -258,7 +283,7 @@ Page({
                 Id:item.Id
             })
             that.watchTaobo();
-						my.uma.trackEvent('renwu_02',{'click':1})
+						my.uma.trackEvent('zhibo_01',{'click':1})
 					}
 					my.ap.navigateToAlipayPage({
 						path:'https://render.alipay.com/p/s/i/?scheme=alipays%3A%2F%2Fplatformapi%2Fstartapp%3FappId%3D20000067%2526url%3Dhttps://api.shupaiyun.com/jumptb1.html?id='+item.Id,
@@ -282,7 +307,7 @@ Page({
                 Id:item.Id
             })
             that.watchTaobo();
-						my.uma.trackEvent('renwu_02',{'click':1})
+						my.uma.trackEvent('zhibo_01',{'click':1})
 					}
 					my.ap.navigateToAlipayPage({
 						path:item.AliAdvertisingLink,
@@ -306,7 +331,7 @@ Page({
             RewardAmount:item.RewardAmount,
             modalname:'zhuomian'
           })
-           my.uma.trackEvent('renwu_02',{'click':1})
+           my.uma.trackEvent('zhibo_01',{'click':1})
            return;
 				}
 				if(JumpType==8){
@@ -340,7 +365,7 @@ Page({
                 Id:item.Id
             })
             that.watchTaobo();
-						my.uma.trackEvent('renwu_02',{'click':1})
+						my.uma.trackEvent('zhibo_01',{'click':1})
 					}
               my.navigateToMiniProgram({
                   appId: item.APPID,
@@ -367,6 +392,49 @@ Page({
             }
             return;
         }
+      },
+      //点击阿里广告第一次
+			jump_banner(e){
+        console.log('e',e);
+        let num=e.currentTarget.dataset.num;
+         let modalInfo=e.currentTarget.dataset.modalInfo;
+          let item=e.currentTarget.dataset.item;
+				console.log('您点击了广告',num,modalInfo)
+				if(this.data.userInfo.NumberCompletions>=num&&modalInfo==false){
+          console.log('有收益');
+          this.setData({
+                BrowseTimets:item.BrowseTime,
+                Id:item.Id
+          })
+					this.watchTaobo3()
+				}
+      },
+       watchTaobo3(){
+				var that=this;
+				//获取当前时间戳  
+				    var timestamp = Date.parse(new Date());  
+            timestamp = timestamp / 1000;
+            this.setData({
+                timets:timestamp,
+				        modalname:''
+            })
+				    console.log("当前时间戳为：" + timestamp); 
+				    
+      },
+			//点击阿里广告第二次
+			jump_bannerSecond(e){
+        let num=e.currentTarget.dataset.num;
+         let modalInfo=e.currentTarget.dataset.modalInfo;
+          let item=e.currentTarget.dataset.item;
+				console.log('您点击了广告',num,modalInfo)
+				if(this.data.userInfo.NumberCompletions>=num&&modalInfo==false){
+          console.log('有收益');
+          this.setData({
+                BrowseTime:item.BrowseTime,
+                Id:item.Id
+          })
+					this.watchTaobo()
+				}
       },
       watchTaobo(){
 				var that=this;
@@ -399,7 +467,7 @@ Page({
                     modalShow:true
                 })
               
-                my.uma.trackEvent('renwu_02',{'success':1});
+                my.uma.trackEvent('zhibo_01',{'success':1});
                 }else{
                     my.showToast({
                        type: 'none',
@@ -408,6 +476,11 @@ Page({
               }
           })
       },
+  gl(){
+    this.setData({
+      number:this.data.number+1
+    })
+  },
   onReady() {
     // 页面加载完成
   },
@@ -459,7 +532,7 @@ Page({
 				title:'开心直播',
 				path:'pages/index/index?userid='+this.data.userInfo.AliAppletOpenId,
 				desc:'开心直播',
-				bgImgUrl:'/static/image/iv.jpg'
+				bgImgUrl:'/static/image/fx.webp'
 			}
     },
 });

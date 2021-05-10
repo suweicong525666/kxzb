@@ -19,9 +19,9 @@
           </view>
       </view>
 		<view class="main">
-      <view class="grid col-2 bg-white padding-sm radius-20 padding-tb-xl">
-          <view class="flex align-center">
-              <image class="icon-80" mode="scaleToFill" src="/static/image/jinbi.png"/>
+      <view class="grid col-2 bg-white padding-sm radius-20 padding-tb-xl ">
+          <view class="flex align-center relative" style="border-right:1rpx solid #e5e5e5">
+              <image class="icon-80" mode="scaleToFill" src="/static/image/qb.png"/>
               <view class="margin-left">
                   <view class="text-black bold text-34">
                      	{{userInfo.Money?userInfo.Money:'0.00'}}
@@ -31,7 +31,7 @@
                   </view>
               </view>
           </view>
-          <view class="flex align-center">
+          <view class="flex align-center padding-left-sm">
               <image class="icon-80" mode="scaleToFill" src="/static/image/jinbi.png"/>
               <view class="margin-left">
                   <view class="text-black bold text-34">
@@ -62,7 +62,7 @@
 		</view>
 		<view class="jfb padding">
 			<view class="text-24 text-black">
-				已赚集分宝
+				已赚集分宝(集分宝实时到账，支付宝搜索[集分宝]可查看)
 			</view>
 			<view class="margin-top flex justify-between align-center solid-bottom padding-bottom">
 				<view class="text-40 bold">
@@ -92,7 +92,7 @@
 				3.提现清零:自2021-03-01起，如果您连续60日未登录，您可提现金额将会自动清零，系统会在清零前向用户发送提现提醒，如用户仍未提现，则视为用户自愿放弃提现的权利;
 			</view>
 			<view class="text-999999 text-24 margin-top-xs">
-				4.提现到账查询:支付宝->我的->账单。若有名称为[开心赚点提现]的账单，即为成功到账;您也可以点击”余额明细"查看提现是否成功;
+				4.提现到账查询:支付宝->我的->账单。若有名称为[开心直播提现]的账单，即为成功到账;您也可以点击”余额明细"查看提现是否成功;
 			</view>
 			<view class="text-999999 text-24 margin-top-xs">
 				5.集分宝提现后，您可以在支付宝搜索”集分宝"，进入集分宝官方小程序，通过"我的"->"集分宝明细"查看是否提现成功

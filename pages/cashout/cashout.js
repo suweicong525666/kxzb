@@ -208,7 +208,7 @@ Page({
                 Id:item.Id
             })
             that.watchTaobo();
-						my.uma.trackEvent('renwu_02',{'click':1})
+						my.uma.trackEvent('zhibo_01',{'click':1})
 					}
 				if(JumpType==3){
 					console.log('跳转小程序评价')

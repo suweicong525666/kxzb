@@ -17,7 +17,8 @@
     "pages/child/activityRules/activityRules",
     "pages/child/signRule/signRule",
     "pages/child/rwCenter/rwCenter",
-    "pages/child/exchange/exchange"
+    "pages/child/exchange/exchange",
+    "pages/child/exchangeDetail/exchangeDetail"
   ],
   "plugins": {
     "myPlugin": {

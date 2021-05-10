@@ -2,7 +2,7 @@
 		<view class="signIn-head" style="margin-top:-2px">
 		</view>
 		<!-- 连续签到 -->
-		<view class="bg-white signIn-shadow margin radius-20 padding-lr  padding-bottom">
+		<view class="bg-white signIn-shadow margin radius-20 padding-lr  padding-bottom margin-top-xl">
 			<view class="flex justify-between padding-tb">
 				<view class="">
 					<text class="text-34 text-black bold">连续签到得好礼</text>
@@ -57,18 +57,10 @@
 		<view class="relative margin-bottom-xl">
 			<view  class="flex justify-center" style="" data-num="{{sdaliggList[0].NumberPopups}}" data-modalInfo="{{sdaliggList[0].IsDone}}" data-item="{{sdaliggList[0]}}"  onTap="jump_banner">
 				<ad class="ad1"
-				unit-id ="ad_tiny_2021002129606766_202104152200008682" onLoad="onRenderSuccess"
+				unit-id ="ad_tiny_2021002135640940_202105062200009935" onLoad="onRenderSuccess"
 
 				/>
 			</view>
-			<!-- <swiper class="screen-swiper ad2 {{dotStyle?'square-dot':'round-dot'}}" a:if="{{qdBanner.length>0}}"   :indicator-dots="true" :circular="true"
-			 :autoplay="false" interval="5000" duration="500">
-				<swiper-item a:for="{{qdBanner}}" >
-					<view class=""  onTap="tabNav" data-JumpType="{{item.JumpType}}" data-item="{{item}}">
-						<image src="{{item.Img}}" mode="scaleToFill" style="width: 688rpx;height: 160rpx" ></image>
-					</view>
-				</swiper-item>
-			</swiper> -->
 		</view>
 	
 		<!-- 签到成功模态框 -->
@@ -88,14 +80,9 @@
 					<view class="flex align-center margin-lr-sm">
 						<text class="text-40 bold text-black">获得</text>
 						<text class="text-56 text-FF790B">{{list.SignOutputList[todayIndex].RewardAmount}}</text>
-							<text class="text-28 text-999999" >{{list.Qd==5?'集分宝':'金币'}}</text>
+							<text class="text-28 text-999999" >{{list.SignOutputList[todayIndex].Type==0?'金币':'集分宝'}}</text>
 					</view>
 					<image class="icon-40" src="../../../static/image/qd_z.png" mode="widthFix"></image>
-				</view>
-				<view class="text-center margin-top-xs">
-					<text class="text-28 text-999999">明天签到可得</text>
-          <text class="text-30 text-FF790B" >{{list.SignOutputList[todayIndex+1].RewardAmount}}</text>
-					<text class="text-28 text-999999" >{{list.Qd==5?'集分宝':'金币'}}</text>
 				</view>
 				<view class="button" onTap="close">
 					知道了
@@ -219,20 +206,11 @@
 						<view class="margin-top-lg padding-lr padding-bottom-0 relative" style="height: 130rpx;"  onTap="jump_bannerTs">
 							<view class="flex justify-center">
 								<ad class="sign-ad1"
-								unit-id ="ad_tiny_2021002129606766_202104142200008656"
+								unit-id ="ad_tiny_2021002135640940_202105062200009945"
 								onLoad ="onRenderSuccess_sign"
 								onError ="onRenderFail"
 								/>
 							</view>
-							<swiper class="screen-swipers sign-ad2":class="dotStyle?'square-dot':'round-dot'" :indicator-dots="true" :circular="true"
-							 :autoplay="false" interval="5000" duration="500">
-							 <swiper-item >
-							 	<image style="height: 130rpx;width:680rpx" src="/static/image/banner.png" mode="widthFix"></image>
-							 </swiper-item>
-								<!-- <swiper-item v-for="(item,index) in syBanner" >
-									<image :src="item.Img" mode="widthFix"></image>
-								</swiper-item> -->
-							</swiper>
 						</view>
 						<view class="flex justify-center padding-sm margin-top">
 							<text class="text-black text-24">点击上方广告浏览{{alggList[0].BrowseTime}}秒完成签到，</text>
@@ -344,7 +322,7 @@
                 <view class="text-32 text-white flex align-center margin-top-xl">
                     <text>2.点击</text>
                     <image class="icon-62" mode="scaleToFill" src="/static/image/tuichu.png"/>
-                    <text>退出[开心赚点]</text>
+                    <text>退出[开心直播]</text>
 						    </view>
                 <view class="text-32 text-white flex align-center margin-top">
                     <text>3.从手机的桌面打开</text>
@@ -353,7 +331,7 @@
                            <image class="icon-130" mode="scaleToFill" src="/static/image/logo1.png"/>
                        </view>
                        <view class="text-center">
-                             <text>[开心赚点]</text>
+                             <text>[开心直播]</text>
                        </view>
                     </view>
 						    </view>

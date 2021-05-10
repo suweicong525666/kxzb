@@ -5,12 +5,67 @@
         <view class="text-center padding-top">
             <text class="icon-phsmall"></text>
             <text class="icon-ph"></text>
-            <text class="margin-lr-sm text-34 text-black bold">签到得好礼</text>
+            <text class="margin-lr-sm text-34 text-black bold">签到赚好礼</text>
             <text class="icon-ph"></text>
              <text class="icon-phsmall"></text>
         </view>
-        <view class="text-26 text-666666 padding">
-          签到得好礼签到得好礼签到得好礼，签到得好礼签到得好礼签到得好礼签到得好礼，签到得好礼签到得好礼签到得好礼签到得好礼签到得好礼。
+        <view class="text-28 text-666666 padding">
+          每日签到可以获得一个签到礼包，您可以选择获得集分宝奖励或现金奖励，奖励获得后转入到余额，您可以点击"提现"->"收支明细"查看到账情况
+        </view>
+    </view>
+    <view class="bg-white margin-sm radius-20">
+        <view class="text-center padding-top">
+            <text class="icon-phsmall"></text>
+            <text class="icon-ph"></text>
+            <text class="margin-lr-sm text-34 text-black bold">赚取集分宝</text>
+            <text class="icon-ph"></text>
+             <text class="icon-phsmall"></text>
+        </view>
+        <view class="text-28 text-666666 padding">
+         您可以在该活动页完成任务，获得指定奖励，并且每完成一定数量即可获得一个神秘礼包，奖励统一直接发放到集分宝账户。具体奖励数目以活动页为准
+        </view>
+    </view>
+    <view class="bg-white margin-sm radius-20">
+        <view class="text-center padding-top">
+            <text class="icon-phsmall"></text>
+            <text class="icon-ph"></text>
+            <text class="margin-lr-sm text-34 text-black bold">好友贡献</text>
+            <text class="icon-ph"></text>
+             <text class="icon-phsmall"></text>
+        </view>
+        <view class="text-28 text-666666 padding">
+            <view>
+                1.您可以从首页，点击"好友贡献"参与此活动
+            </view>
+            <view>
+                2.活动中，您每日可以邀请新的好友到小程序完成任务，好友当日完成一定量的任务您可以获得不同金额的现金红包奖励，好友第二天完成的任务不计入当日贡献中
+            </view>
+            <view>
+                3.活动数据每日刷新，您邀请的好友以及好友完成的任务数量会在每晚00:00清空
+            </view>
+            <view>
+                4.好友之间不能互相邀请
+            </view>
+            <view>
+              5.具体奖励金额以活动页为准
+            </view>
+        </view>
+    </view>
+    <view class="bg-white margin-sm radius-20">
+        <view class="text-center padding-top">
+            <text class="icon-phsmall"></text>
+            <text class="icon-ph"></text>
+            <text class="margin-lr-sm text-34 text-black bold">重要说明</text>
+            <text class="icon-ph"></text>
+             <text class="icon-phsmall"></text>
+        </view>
+        <view class="text-28 text-666666 padding">
+            <view>
+               1.开心直播可以根据活动的实际举办情况对活动规则进行变动活调整，相关变动或调整将公布在活动页面上，并于公布时即时生效
+            </view>
+            <view>
+              2.所有参与者将视为已了解本次活动细节，并确认自己适合参与本次活动，自愿承担所有责任和风险，造成的任何伤害与组织者无关
+            </view>
         </view>
     </view>
 </view>
